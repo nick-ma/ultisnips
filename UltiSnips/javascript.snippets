@@ -157,4 +157,65 @@ snippet req "require an AMD module"
 require([${1:'dependencies'}], ${2:callback});
 endsnippet
 
+# JQuery snippet
+snippet ready "$(document).ready()"
+$(document).ready(function() {
+  ${1}
+})
+endsnippet
+
+snippet on "$.on()"
+$('${1:element}').on('${2:click}',${3:'.selector'},function(event){
+  event.preventDefault();
+  ${4}
+})
+endsnippet
+
+snippet get "$.get()"
+$.get(${1:url}, function(data) {
+  ${2}
+})    
+endsnippet
+
+snippet post "$.post()" 
+$.post(${1:url}, ${2:post_data}, function(data, textStatus, jqXHR){
+  ${3}
+})
+endsnippet
+
+snippet postf "$.post()...fail()" 
+$.post( ${1:url}, ${2:post_data}, function(data, textStatus, jqXHR){
+  ${3}
+})
+.fail(function() {
+  ${4}
+})
+endsnippet
+
+snippet postfa "$.post()...fail()...always()" 
+$.post( ${1:url}, ${2:post_data}, function(data, textStatus, jqXHR){
+  ${3}
+})
+.fail(function() {
+  ${4}
+})
+.always(function() {
+  ${5}
+})
+endsnippet
+
+# Async snippets
+snippet awf "async.waterfall" 
+async.waterfall([
+function(cb){
+  ${1}
+},
+function(${2:data},cb){
+  ${3}
+},
+],function(err,result){
+  ${4}
+});
+endsnippet
+
 # vim:ft=snippets:
